@@ -58,5 +58,13 @@ public function edit($kode_paket)
 			redirect('paket');
 	}
 }
+public function delete($kode_paket)
+	{
+		$query = $this->m_paket->delete($kode_paket , $data);
+		if ($query = true) {
+			$this->session->set_flashdata('info', 'Data Paket Berhasil Di Delete');
+			redirect('paket');
+	}
+	}
 }
 
