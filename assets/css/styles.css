@@ -1,0 +1,45 @@
+.bg-navbar{
+	background-color: #78C841;
+}
+
+.image-slider{
+	height: 500px;
+}
+
+.btn-slider{
+	background-color: #78C841;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	margin-top: 20%;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+.bg-caption{
+	background-color: black;
+	opacity: 0.7;
+	border-radius: 20px;
+}
+
+.set-image{
+	width: 350px;
+	height: 250px;
+}
+
+h5{
+	color:#78C841;
+	font-weight: bold;
+}
+.th_warna{
+	background-color: #78C841;
+}
+
+.footer{
+	height: 90px;
+	background-color: #78C841;
+}
+.copyright{
+	padding-top: 25px;
+}
+
+
