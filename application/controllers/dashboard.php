@@ -6,6 +6,9 @@ class Dashboard Extends CI_Controller{
 
 	public function index()
 	{
-        echo "Login berhasil";
+        $isi['content'] = 'backend/home';
+		$isi['judul'] = 'Dashboard';		
+		$this->load->view('backend/dashboard' ,$isi);
 	}
+
 }
