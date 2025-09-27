@@ -63,6 +63,7 @@ public function edit($id)
 			redirect('konsumen');
 	}
    }
+//    delete
    public function delete($id)
    {
 	  $query = $this->m_konsumen->delete($id);
