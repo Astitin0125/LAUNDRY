@@ -47,7 +47,12 @@
 			<!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url()?>transaksi/tambah"> 
-                    <span>Data Transaksi</span></a>
+                    <span>Tambah Transaksi</span></a>
+            </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url()?>transaksi/tambah"> 
+                    <span>Riwayat Transaksi</span></a>
             </li>
 
 			<!-- Nav Item - Charts -->
