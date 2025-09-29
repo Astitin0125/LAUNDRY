@@ -25,6 +25,35 @@ class Transaksi Extends CI_Controller {
         echo json_encode($data);
     }
 
+	public function simpan()
+	{
+		$data = array(
+			'kode_transaksi' => $this->input->post('kode_transaksi'),
+			'kode_konsumen'  => $this->input->post('kode_konsumen'),
+			'kode_paket'	 => $this->input->post('kode_paket'),
+			'tgl_masuk' 	 => $this->input->post('tgl_masuk'),
+			'tgl_ambil'		 => '',
+			'berat'			 => $this->input->post('berat'),
+			'grand_total' 	 => $this->input->post('grand_total'),
+			'bayar'			 => $this->input->post('bayar'),
+			'status'		 => $this->input->post('status'),
+		);
+
+		$query = $this->db->insert('transaksi', $data);
+		if ($query = true) {
+			$this->session->set_flashdata('info','Data Transaksi Berhasil Disimpan');
+			redirect('transaksi/tambah', 'refresh');
+		}
+	}
+
+	public function riwayat()
+	{
+		$isi['content'] = 'backend/transaksi/riwayat_transaksi';
+		$isi['judul'] = 'Riwayat Transaksi';
+		$isi['data'] = $this->m_transaksi->getAllRiwayat();
+		$this->load->view('backend/dashboard',$isi);
+	}
+
 }
 
 ?>

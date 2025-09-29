@@ -10,12 +10,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 </head>
+
 <body>
+
+            <?php 
+			if (!empty($this->session->flashdata('info'))) {?>
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                 <strong>Selamat</strong> <?= $this->session->flashdata('info')?>
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               </div>
+					<?php }
+			 ?>
+
 	<div class="container-fluid">
 		<h1 class="h3 mb-2 text-gray-800"><?= $judul;?></h1>
 		<div class="card shadow mb-4">
 			<div class="card-body">
-				<form method="post" action="<?= base_url()?>paket/simpan"?>
+				<form method="post" action="<?= base_url()?>transaksi/simpan"?>
 
 				<div class="form-group">
 						<input type="text" name="kode_transaksi" value="<?= "TR".date('Ymd').$kode_transaksi;?>" class="form-control" readonly>

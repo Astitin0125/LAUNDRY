@@ -28,6 +28,15 @@ class M_transaksi extends CI_Model {
 		return $kodejadi;  
     }
 
+	public function getAllRiwayat()
+	{
+		$this->db->select('*');
+		$this->db->from('transaksi');
+		$this->db->join('konsumen', 'transaksi.kode_konsumen = konsumen.kode_konsumen', 'left');
+		$this->db->join('paket', 'transaksi.kode_paket = paket.kode_paket', 'left');
+		return $this->db->get()->result();
+	}
+
 }
 
 ?>

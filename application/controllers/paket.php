@@ -23,6 +23,7 @@ class Paket Extends CI_Controller {
 		$isi['kode_paket'] = $this->m_paket->generate_kode_paket();		
 		$this->load->view('backend/dashboard',$isi);
 	}
+	
 	public function simpan()
 	{
 		$data = array(
@@ -35,8 +36,9 @@ class Paket Extends CI_Controller {
 			$this->session->set_flashdata('info', 'Data Paket Berhasil Disimpan');
 			redirect('paket');
 	}
-}
-public function edit($kode_paket)
+	}
+
+	public function edit($kode_paket)
 	{
 		$isi['content'] = 'backend/paket/e_paket';
 		$isi['judul'] = 'Form Edit Paket';
