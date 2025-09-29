@@ -54,6 +54,20 @@ class Transaksi Extends CI_Controller {
 		$this->load->view('backend/dashboard',$isi);
 	}
 
+	public function update_status()
+	{
+		$kode_transaksi = $this->input->post('kt');
+		$status = $this->input->post('stt');
+		$tgl_ambil = date('Y-m-d h:i:s');
+		$status_bayar = "Lunas";
+
+		if ($status == "Baru" OR $status =="Proses") {
+			$this->m_transaksi->update_status($kode_transaksi, $status);
+		}else{
+			$this->m_transaksi->update_status1($kode_transaksi, $status, $tgl_ambil, $status_bayar);
+		}
+	}
+
 }
 
 ?>

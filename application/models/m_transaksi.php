@@ -11,7 +11,7 @@ class M_transaksi extends CI_Model {
 
     public function generateKode()
     {
-		$this->db->select('RIGHT(transaksi.kode_konsumen,3) as kode', false);
+		$this->db->select('RIGHT(transaksi.kode_transaksi,3) as kode', false);
 		$this->db->order_by('kode_transaksi', 'desc');    
 		$this->db->limit(1);    
 		$query = $this->db->get('transaksi');     
@@ -35,6 +35,22 @@ class M_transaksi extends CI_Model {
 		$this->db->join('konsumen', 'transaksi.kode_konsumen = konsumen.kode_konsumen', 'left');
 		$this->db->join('paket', 'transaksi.kode_paket = paket.kode_paket', 'left');
 		return $this->db->get()->result();
+	}
+
+	public function update_status($kode_transaksi, $status)
+	{
+		$this->db->set('status', $status);
+		$this->db->where('kode_transaksi', $kode_transaksi);
+		$this->db->update('transaksi');
+	}
+
+	public function update_status1($kode_transaksi, $status, $tgl_ambil, $status_bayar)
+	{
+		$this->db->set('status', $status);
+		$this->db->set('tgl_ambil', $tgl_ambil);
+		$this->db->set('bayar', $status_bayar);
+		$this->db->where('kode_transaksi', $kode_transaksi);
+		$this->db->update('transaksi');
 	}
 
 }
