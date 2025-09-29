@@ -6,7 +6,19 @@
         <title>Document</title>
     </head>
 <body>
-    
+
+     <?php 
+			if (!empty($this->session->flashdata('info'))) {?>
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                 <strong>Selamat</strong> <?= $this->session->flashdata('info')?>
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               </div>
+					<?php }
+			 ?>
+
+	<div class="container-fluid">
         <h1 class="h3 mb-2 text-gray-800"><?= $judul;?></h1>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -76,7 +88,7 @@
                                   <?php }else{?>
                                     <td>
                                          <a href="" class="btn btn-warning btn-sm">Detail</a>
-                                         <a href="" class="btn btn-success btn-sm">Edit</a>
+                                         <a href="<?= base_url()?>transaksi/edit_transaksi/<?= $row->kode_transaksi;?>" class="btn btn-success btn-sm">Edit</a>
                                     </td>
                                 <?php }
                                 ?>
